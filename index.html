@@ -20,14 +20,16 @@
     <div id="patches"></div><br/>
     <p> This 3D thematic map shows the number of noise complaints in New York City according to all the 3-1-1 Service requests from January to March, 2017. The data was directly downloaded from <a href="https://data.cityofnewyork.us/Social-Services/Noise-complaints-since-20151101-w-Unspecified-CB/vjav-8yz5">NYC OpenData</a>. In the United States, 3-1-1 is a special telephone number that provides access to non-emergency municipal services.</p><br/>
     <p> Virtual globe Lib: cesium.js | BaseMap: Mapbox | Noise Reports: NYC OpenData </p>
-    <p> Author: <a href="http://ceoas.oregonstate.edu/profile/zhao/">Bo Zhao </a>|  Oregon State University</p>
+    <p> Authors: </p>
+    <p>   <a href="http://ceoas.oregonstate.edu/profile/zhao/">Lead Designer:Bo Zhao </a>|  Oregon State University</p>
+    <p>   <a href="http://www.linkedin.com/in/brandonlarrabee">Creative Support:Brandon Larrabee</a>|  Oregon State University</p>
 </div>
 <script>
 
     //create a cesium view, and use the mapbox dark map as the base map.
     var viewer = new Cesium.Viewer('cesiumContainer', {
         imageryProvider : new Cesium.MapboxImageryProvider({
-                mapId : 'mapbox.dark',
+                mapId : 'mapbox.light',
                 accessToken : 'pk.eyJ1IjoiamFrb2J6aGFvIiwiYSI6ImNpenh0dG41ZjAyY3gzMXFsdTJqbm5oNmwifQ.ucAGT19EfvxX2EUaHUwAxA'
         }),
         vrButton: false,  // virtual reality support
@@ -47,8 +49,8 @@
 
     // determine the color.md ramp. The number of colors is determined by the number of classes.
     // try different interpolation method lch, lab, hsl
-    //var colors = chroma.scale(['yellow', 'navy']).mode('hsl').colors(grades.length);
-    var colors = chroma.scale('YlOrRd').colors(grades.length);
+    var colors = chroma.scale(['yellow', 'navy']).mode('hsl').colors(grades.length);
+  //  var colors = chroma.scale('yellow', '008ae5').colors(grades.length);
 
     // create the legend
     var labels = [];
